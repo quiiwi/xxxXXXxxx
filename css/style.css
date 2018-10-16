@@ -1,0 +1,67 @@
+#objP{
+    border-radius: 5px;
+    background: #df5237;
+    min-height: 1500px;
+}
+
+body{
+    background: #733c40;
+    font-family: 'Mali', cursive;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Roboto', sans-serif;
+}
+
+#app{
+    background-color: #b3cfb8;
+}
+
+#navbarr{
+    background: #733c40;
+    border-radius: 5px;
+}
+/*accueil*/
+.yolooww{
+    position: relative;
+    bottom:25px;
+    opacity: 0.5;
+}
+
+.yolooww h5{
+    text-align: center;
+}
+
+
+
+/*informatique*/
+
+.specialcarddd{
+    background: #722a1c;
+}
+
+.specialcarddd2{
+    background: #eae6d5;
+}
+
+/* inscription */
+.hjhjhj{
+    border-radius: 5px;
+}
+
+/* profil */
+.yoloooo{
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
