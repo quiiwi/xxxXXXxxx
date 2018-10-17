@@ -9,21 +9,30 @@ if (!internauteEstConnecte()) {
 extract($_SESSION['membre']);
 
 if(!empty($_POST)){
+    
+    if (!isset($_POST['id_inscrit'])) $alert .= '<div class="bg-danger"> Erreur id </div>';
 	
-    if (!isset($_POST['nom']) || strlen($_POST['nom']) <1 || strlen($_POST['nom']) >20    ) $alert .= '<div class="bg-danger"> Erreur nom </div>';
+    if (!isset($_POST['nom'])) $alert .= '<div class="bg-danger"> Erreur nom </div>';
 
-    if (!isset($_POST['prenom']) || strlen($_POST['prenom']) <1 || strlen($_POST['prenom']) >20    ) $alert .= '<div class="bg-danger"> Erreur prénom </div>';
+    if (!isset($_POST['prenom'])) $alert .= '<div class="bg-danger"> Erreur prénom </div>';
 
-    if (!isset($_POST['pseudo']) || strlen($_POST['pseudo']) <4 || strlen($_POST['pseudo']) >20    ) $alert .= '<div class="bg-danger"> Erreur pseudo </div>';
+    if (!isset($_POST['pseudo'])) $alert .= '<div class="bg-danger"> Erreur pseudo </div>';
 
-    if (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) $alert .= '<div class="bg-danger"> Erreur email </div>';
+    if (!isset($_POST['email'])) $alert .= '<div class="bg-danger"> Erreur email </div>';
 
-    if (!isset($_POST['mdp']) || strlen($_POST['mdp']) <4 || strlen($_POST['mdp']) >20    ) $alert .= '<div class="bg-danger"> Erreur mot de passe </div>';
+    if (!isset($_POST['mdp'])) $alert .= '<div class="bg-danger"> Erreur mot de passe </div>';
 
-    if (!isset($_POST['telephone']) || !ctype_digit($_POST['telephone']) || strlen($_POST['telephone']) != 10) $alert .= '<div class="bg-danger"> Erreur telephone </div>';
-
+    if (!isset($_POST['telephone'])) $alert .= '<div class="bg-danger"> Erreur telephone </div>';
+    
     if (!isset($_POST['motif_inscription']) || ($_POST['motif_inscription'] != 'pro' && $_POST['motif_inscription'] != 'perso' && $_POST['motif_inscription'] != 'questions' && $_POST['motif_inscription'] != 'me_contacter'  )) $alert .= '<div class="bg-danger"> Erreur motif </div>';
-
+    
+    if (!isset($_POST['adresse'])) $alert .= '<div class="bg-danger"> Erreur adresse </div>';
+    
+    if (!isset($_POST['code_postal'])) $alert .= '<div class="bg-danger"> Erreur code_postal </div>';
+    
+    if (!isset($_POST['ville'])) $alert .= '<div class="bg-danger"> Erreur ville </div>';
+    
+    if (!isset($_POST['pays'])) $alert .= '<div class="bg-danger"> Erreur pays </div>';
     
     if (empty($alert)){
 
@@ -33,8 +42,9 @@ if(!empty($_POST)){
 
         $dispo = executeRequete("SELECT * FROM quiiwi_inscrits WHERE pseudo = :pseudo", array(':pseudo' => $_POST['pseudo']));
 
-        $result = $pdo->prepare("UPDATE quiiwi_inscrits SET (value, nom, prenom, pseudo, email, mdp, telephone, motif_inscription, adresse, code_postal, ville, pays) VALUES (0, :nom, :prenom, :pseudo, :email, :mdp, :telephone, :motif_inscription, :adresse, :code_postal, :ville, :pays) ");
+        $result = $pdo->prepare("UPDATE quiiwi_inscrits SET (id_inscrit, value, nom, prenom, pseudo, email, mdp, telephone, motif_inscription, adresse, code_postal, ville, pays) VALUES (:id_inscrit, 0, :nom, :prenom, :pseudo, :email, :mdp, :telephone, :motif_inscription, :adresse, :code_postal, :ville, :pays) WHERE id_inscrit = :id_inscrit", array(':id_inscrit' => $_POST['id_inscrit']));
 
+        $result->bindParam(':id_inscrit', $_POST['id_inscrit']);
         $result->bindParam(':nom', $_POST['nom']);
         $result->bindParam(':prenom', $_POST['prenom']);
         $result->bindParam(':pseudo', $_POST['pseudo']);
@@ -46,7 +56,6 @@ if(!empty($_POST)){
         $result->bindParam(':code_postal', $_POST['code_postal']);
         $result->bindParam(':ville', $_POST['ville']);
         $result->bindParam(':pays', $_POST['pays']);
-
 
         $req = $result->execute();
 
@@ -75,6 +84,7 @@ require_once 'inc/haut.inc.php';
                 </div>
 
                 <div class="col-6">
+                    id : <input type="text" id="id_inscrit" name="id_inscrit" value="<?php echo $id_inscrit ?>"> <br>
                     nom :  <input type="text" id="nom" name="nom" value="<?php  echo $nom  ?>">  <br>
                     prénom : <input type="text" id="prenom" name="prenom" value="<?php  echo $prenom  ?>">  <br>
                     pseudo : <input type="text" id="pseudo" name="pseudo" value="<?php  echo $pseudo  ?>">  <br>
@@ -104,7 +114,7 @@ require_once 'inc/haut.inc.php';
             <div class="row">
                 <div class="col-12">
                     <br>
-                    <input type="submit" value="modifier" class="btn bg-primary light-text">
+                    <input type="submit" value="*** modifier ***" class="btn bg-primary light-text">
                 </div>
             </div>
         </form>

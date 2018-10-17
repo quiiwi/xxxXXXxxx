@@ -1,4 +1,4 @@
-#objP{
+/* #objP{
     border-radius: 5px;
     background: #df5237;
     min-height: 1500px;
@@ -20,9 +20,13 @@ h1,h2,h3,h4,h5,h6{
 #navbarr{
     background: #733c40;
     border-radius: 5px;
-}
+} */
+
+
+
 /*accueil*/
-.yolooww{
+
+/* .yolooww{
     position: relative;
     bottom:25px;
     opacity: 0.5;
@@ -30,32 +34,44 @@ h1,h2,h3,h4,h5,h6{
 
 .yolooww h5{
     text-align: center;
-}
+} */
+
 
 
 
 /*informatique*/
 
-.specialcarddd{
+/* .specialcarddd{
     background: #722a1c;
 }
 
 .specialcarddd2{
-    background: #eae6d5;
+    background: #eae6d5; */
 }
+
+
+
 
 /* inscription */
-.hjhjhj{
+
+/* .hjhjhj{
     border-radius: 5px;
-}
+} */
+
+
+
+
 
 /* profil */
+
 .yoloooo{
     color: white;
+} 
+
+
+.samerrit{
+    margin-left: 40em;
 }
-
-
-
 
 
 

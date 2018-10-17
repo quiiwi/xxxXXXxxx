@@ -52,7 +52,7 @@ require_once 'inc/haut.inc.php';
         <div class="row">
             <div class="col-12">
                 <br>
-                <a class="btn bg-primary text-light" href="modifierprofil.php">Modifier *****</a>
+                <a class="btn bg-primary text-light" href="modifierprofil.php">Modifier</a>
             </div>
         </div>
 

@@ -44,12 +44,12 @@
     require_once 'inc/haut.inc.php';
 ?>
 
-<a class="text-white" href="informatique.php?type=Langage">Langages</a> || 
-<a class="text-white" href="informatique.php?type=CMS">CMS</a> || 
-<a class="text-white" href="informatique.php?type=CMV">CMV</a> || 
-<a class="text-white" href="informatique.php?type=Logiciels">Logiciels</a> || 
-<a class="text-white" href="informatique.php?type=Librairies">Librairies</a> || 
-<a class="text-white" href="informatique.php?type=Autres">Autres</a>
+<a class="text-dark" href="informatique.php?type=Langage">Langages</a> || 
+<a class="text-dark" href="informatique.php?type=CMS">CMS</a> || 
+<a class="text-dark" href="informatique.php?type=CMV">CMV</a> || 
+<a class="text-dark" href="informatique.php?type=Logiciels">Logiciels</a> || 
+<a class="text-dark" href="informatique.php?type=Librairies">Librairies</a> || 
+<a class="text-dark" href="informatique.php?type=Autres">Autres</a>
 
 <?php
 

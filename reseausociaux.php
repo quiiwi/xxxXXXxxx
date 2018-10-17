@@ -8,25 +8,21 @@
 
  *** ma chaîne YT ***<br>
 
-
-
  *** ma chaîne twitch ***<br>
-
-
 
  <a href="https://github.com/" target="_blank">Mon GitHub</a><br>
 
-
-
  *** boîte mail ***<br>
 
-
-
- *** fb twitter insta.... ***<br>
-
-
+ *** fb twitter insta.... ***<br><br><br>
 
  *** Ecrire un commentaire ***<br>
+
+ <form action="" method="post">
+     
+    <textarea name="comms" id="comms" cols="30" rows="10" placeholder="Blabla"></textarea>
+
+ </form>
 
 
 <?php
