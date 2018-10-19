@@ -11,14 +11,12 @@
     
     }
 
-
-
     if(!empty($_POST)){
         if(!isset($_POST['pseudo']) || empty($_POST['pseudo'])) {
-            $alert .= '<div class="bg-danger"> Le pseudo est requis. </div>';
+            $alert .= '<div class="alert alert-danger"> Le pseudo est requis. </div>';
         }
         if(!isset($_POST['mdp']) || empty($_POST['mdp'])) {
-            $alert .= '<div class="bg-danger"> Le mot de passe est requis. </div>';
+            $alert .= '<div class="alert alert-danger"> Le mot de passe est requis. </div>';
         }
         if (empty($alert)) {
 
@@ -32,7 +30,7 @@
                 exit();
                 
             } else {
-                $alert .= '<div class="bg-danger"> Erreur sur les identifiants. </div>';
+                $alert .= '<div class="alert alert-danger"> Erreur sur les identifiants. </div>';
             }
         } 
     }
@@ -40,38 +38,43 @@
     require_once 'inc/haut.inc.php';
 ?>
 
-
 <div class="container p-3">
 
+            <div class="row">
 
+                <div class="col-4">
 
-    <div class="row">
+                    <h1 class="align-middle">Connecte toi !</h1>
 
+                    <?php echo $alert; ?>
 
-        <div class="col-lg-5 p-3 bg-light hjhjhj">
+                </div>
 
-            <h1 class="align-middle">Connecte toi!</h1>
-            
+                <div class="col-8">
 
-            <form action="" method="post">
+                    <form action="" method="post">
 
-                <label for="pseudo">Pseudo : *</label>
-                <input type="text" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo"><br>
+                        <div class="form-group">
 
-                <label for="mdp">Mot de passe : *</label>
-                <input type="text" id="mdp" name="mdp" placeholder="Entrez votre mot de passe"><br>
+                            <label for="pseudo">Pseudo :</label>
+                            <input class="form-control" type="text" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo"><br>
 
-                <input type="submit" name="connexion" value="se connecter" class="btn btn-primary">
+                            <label for="mdp">Mot de passe :</label>
+                            <input type="text" id="mdp" name="mdp" class="form-control" placeholder="Entrez votre mot de passe"><br>
 
-                <?php
-                    echo $alert;
-                ?>
+                            <input type="submit" name="connexion" value="se connecter" class="btn btn-primary">
 
-            </form>
+                            <?php
+                                
+                            ?>
 
-        </div>
+                        </div>
 
-    </div>
+                    </form>
+
+                </div>
+
+            </div>
 
 </div>
 

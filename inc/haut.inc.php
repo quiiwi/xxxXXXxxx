@@ -9,7 +9,7 @@
 	<title>Kilic Aslan</title>
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo RACINE_SITE ?>css/style.css">
     
     <!-- FONT AWESOMEEEEE -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
@@ -26,10 +26,14 @@
     
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=K2D|Mali|Niramit" rel="stylesheet"> 
     
+
 </head>
 <body>
-    <div class="main">
+    <div class="main" id="yyyYYY">
         
 
         <!-- Y A PLEIN D'ERREURS DANS LA NAV A CORRIGER UNE FOIS QUE J'AURAIS GUERIT -->
@@ -48,7 +52,7 @@
                     <li class="nav-item">
                         <?php 
                             echo '<a class="nav-link ';
-                            echo classactive($_SERVER['SCRIPT_FILENAME'], 'C:/xampp/htdocs/PHP/xXx/projetsperso.php') .' " href="'. RACINE_SITE .'projetsperso.php">*** Projets Perso ***</a>';
+                            echo classactive($_SERVER['SCRIPT_FILENAME'], 'C:/xampp/htdocs/PHP/xXx/projetsperso.php') .' " href="'. RACINE_SITE .'projetsperso.php"> Projets Perso </a>';
                         ?>
                     </li>
 
@@ -73,11 +77,11 @@
                                 <a class="nav-link dropdown-toggle  ';
                                 echo classactive($_SERVER['SCRIPT_FILENAME'], 'C:/xampp/htdocs/PHP/xXx/profil.php'); 
                                 echo classactive($_SERVER['SCRIPT_FILENAME'], 'C:/xampp/htdocs/PHP/xXx/modifierprofil.php'); 
-                                echo '" data-toggle="dropdown" href="'. RACINE_SITE .'profil.php" role="button" aria-haspopup="true" aria-expanded="false">*** Votre compte ***</a>
+                                echo '" data-toggle="dropdown" href="'. RACINE_SITE .'profil.php" role="button" aria-haspopup="true" aria-expanded="false">Votre compte</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="'. RACINE_SITE .'profil.php">Profil</a>
-                                    <a class="dropdown-item" href="'. RACINE_SITE .'modifierprofil.php">*** Modifier votre profil ***</a>
-                                    <a class="dropdown-item" href="'. RACINE_SITE .'connexion.php?action=deconnexion">Déconnexion</a>
+                                    <a class="dropdown-item" href="' . RACINE_SITE . 'profil.php">Profil</a>
+                                    <a class="dropdown-item" href="' . RACINE_SITE . 'modifierprofil.php">Modifier votre profil</a>
+                                    <a class="dropdown-item" href="' . RACINE_SITE . 'connexion.php?action=deconnexion">Déconnexion</a>
                                 </div>
                             </li>
                             '
@@ -87,37 +91,33 @@
                         }elseif(internauteEstConnecte()){
                             echo 
                             '<li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle  <?php classactive($_SERVER[\'SCRIPT_FILENAME\'], \'C:/xampp/htdocs/PHP/xXx/informatique.php\') ?> " data-toggle="dropdown" href="profil.php" role="button" aria-haspopup="true" aria-expanded="false">*** Votre compte ***</a>
+                                <a class="nav-link dropdown-toggle  <?php classactive($_SERVER[\'SCRIPT_FILENAME\'], \'C:/xampp/htdocs/PHP/xXx/informatique.php\') ?> " data-toggle="dropdown" href="profil.php" role="button" aria-haspopup="true" aria-expanded="false">Votre compte</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="connexion.php?action=deconnexion">Déconnexion</a>
-                                    <a class="dropdown-item" href="modifierprofil.php">*** Modifier mon profil ***</a>
+                                    <a class="dropdown-item" href="modifierprofil.php">Modifier mon profil</a>
                                     <a class="dropdown-item" href="profil.php">Profil</a>
                                 </div>
                             </li>';
-                        }else{
-                            echo '<li class="nav-item "><a class=" nav-item nav-link <?php classactive($_SERVER[\'SCRIPT_FILENAME\'], \'C:/xampp/htdocs/PHP/xXx/connexion.php\') ?>" href="connexion.php">connexion</a></li>';
-                            echo '<li class="nav-item "><a class=" nav-item nav-link <?php classactive($_SERVER[\'SCRIPT_FILENAME\'], \'C:/xampp/htdocs/PHP/xXx/inscription.php\') ?>" href="inscription.php">inscription</a></li>';
                         }
                     ?> 
 
                     <li class="nav-item">
-                        <a class=" nav-link" href="<?php echo RACINE_SITE ?>reseausociaux.php">*** Me contacter ***</a>
+                        <a id="swaggyyer" class=" nav-link" href="<?php echo RACINE_SITE ?>reseausociaux.php"> Me contacter </a>
                     </li>
 
-                    <li>
-                        <div class="container">
-                            <?php
-                                if (internauteEstConnecteEtAdmin()){
-                                    echo '<p class="text-primary mt-2 samerrit"> <i class="fas fa-circle"></i> </p>';
-                                }elseif(internauteEstConnecte()){
-                                    echo '<p class="text-success mt-2 samerrit"> <i class="fas fa-circle"></i> </p>';
-                                }else{
-                                    echo '<p class="text-secondary mt-2 samerrit"> <i class="fas fa-circle"></i> </p>';
-                                }
-                            ?>
-                        </div>
-                    </li>
+                        <?php
+                        if (internauteEstConnecteEtAdmin()){
+                                echo '<li class="nav-item samerrit"> <a class="nav-item nav-link" href="'. RACINE_SITE .'connexion.php?action=deconnexion">Déconnexion</a> </li>';
+                            }elseif(internauteEstConnecte()){
+                                echo '<li class="nav-item samerrit"> <a class="nav-item nav-link" href="'. RACINE_SITE .'connexion.php?action=deconnexion">Déconnexion</a> </li>';
+                            }else{
+                                echo '<li class="nav-item samerrit"> <a class="nav-item nav-link <?php classactive($_SERVER[\'SCRIPT_FILENAME\'], \'C:/xampp/htdocs/PHP/xXx/connexion.php\') ?>" href="connexion.php">connexion</a> </li>';
 
+                                echo '<li class="nav-item "> <a class=" nav-item nav-link <?php classactive($_SERVER[\'SCRIPT_FILENAME\'], \'C:/xampp/htdocs/PHP/xXx/inscription.php\') ?>" href="inscription.php">inscription</a></li>';
+                            }
+                        ?>
+                    
+                    
                     <?php 
                         if (internauteEstConnecteEtAdmin()){
                             echo '
@@ -126,20 +126,47 @@
                                 echo classactive($_SERVER['SCRIPT_FILENAME'], 'C:/xampp/htdocs/PHP/xXx/admin/nouvellelangue.php') ;
                                 echo classactive($_SERVER['SCRIPT_FILENAME'], 'C:/xampp/htdocs/PHP/xXx/admin/gestioninformatique.php') ;
                                 echo classactive($_SERVER['SCRIPT_FILENAME'], 'C:/xampp/htdocs/PHP/xXx/admin/gestionmembre.php') ;
-                                echo '" data-toggle="dropdown" href="'. RACINE_SITE .'gestionmembre.php" role="button" aria-haspopup="true" aria-expanded="false">*** Admin ***</a>
+                                echo '" data-toggle="dropdown" href="'. RACINE_SITE .'admin/index.php" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="'. RACINE_SITE .'admin/nouvellelangue.php">Nouvelle Langue</a>
-                                    <a class="dropdown-item" href="'. RACINE_SITE .'admin/gestioninformatique.php">*** Gestion Informatique ***</a>
-                                    <a class="dropdown-item" href="'. RACINE_SITE .'admin/gestionmembre.php">*** Gestion Membre ***</a>
+                                    <a class="dropdown-item" href="'. RACINE_SITE .'admin/gestioninformatique.php">Gestion Informatique</a>
+                                    <a class="dropdown-item" href="'. RACINE_SITE .'admin/gestionmembre.php">Gestion Membre</a>
                                 </div>
                             </li>';
                         }
                     ?>
+                   
 
-                    <!-- ICI BOUTON POUR MODIFIER DE MODE NUIT/JOUR -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">*** SWITCH N/J ***</a>
+                    <li>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-9">
+                                    <?php
+                                        if (internauteEstConnecteEtAdmin()){
+                                            echo '<p class="text-primary mt-2" title="Je suis Connecté Et Admin" data-toggle="tooltip"> SUPER ADMIN </p>';
+                                        }elseif(internauteEstConnecte()){
+                                            echo '<p class="text-success mt-2" title="Je suis Connecté Et Admin" data-toggle="tooltip"> Utilisateur </p>';
+                                        }else{
+                                            echo '<p class="text-secondary mt-2" title="Je suis Connecté Et Admin" data-toggle="tooltip"> Visiteur </p>';
+                                        }
+                                    ?>  
+                                </div>
+                                <div class="col-3">
+                                    <?php
+                                        if (internauteEstConnecteEtAdmin()){
+                                            echo '<p class="text-primary mt-2" title="Je suis Connecté Et Admin" data-toggle="tooltip"> <i class="fas fa-circle"></i> </p>';
+                                        }elseif(internauteEstConnecte()){
+                                            echo '<p class="text-success mt-2" title="Je suis Connecté Et Admin" data-toggle="tooltip"> <i class="fas fa-circle"></i> </p>';
+                                        }else{
+                                            echo '<p class="text-secondary mt-2" title="Je suis Connecté Et Admin" data-toggle="tooltip"> <i class="fas fa-circle"></i> </p>';
+                                        }
+                                    ?>    
+                                </div>
+                            </div>
+                        </div>
                     </li>
+
+                    
                 </ul>
             </div>
         </nav>

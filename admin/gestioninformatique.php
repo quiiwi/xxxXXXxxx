@@ -6,10 +6,20 @@
         exit();
     }
 
+
+    if(isset($_GET['idcompetence'])){
+        
+        $resultat = executeRequete2("DELETE FROM competence WHERE idcompetence = :idcompetence", array(':idcompetence' => $_GET['idcompetence']));
+    
+    
+    }
+
+
+
     require_once '../inc/haut.inc.php';
 ?>
-
-<a href="../index.php">Retour</a>
+<a  class="btn btn-primary" role="button" href="<?php RACINE_SITE ?>index.php">Retour à l'Accueil Administrateur</a>
+<a  class="btn btn-primary" role="button" href="index.php">Retour</a>
 
     <h1 class="align-middle">Gestion Informatique</h1>
 
@@ -36,7 +46,7 @@ while($info = $competence->fetch(PDO::FETCH_ASSOC)){
     echo '<td>' . $info['anneecompetence'] . '</td>';
     echo '<td>' . $info['projetcompetence'] . '</td>';
     echo '<td>' . $info['typecompetence'] . '</td>';
-    echo '<td> <a href="#"> Modifier ***</a> | <a href="#"> Supprimer ***</a> </td>';
+    echo '<td> <a href="modifierlangue.php?idcompetence='. $info['idcompetence'] .'">Modifier</a> | <a href="?idcompetence='. $info['idcompetence'] .'" onclick="return(confirm(\'Etes-vous certain de vouloir supprimer ce produit?\'))" >Supprimer</a> </td>';
     echo '</tr>';
     
 }

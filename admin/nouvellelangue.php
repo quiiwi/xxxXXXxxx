@@ -34,76 +34,63 @@
     }
 
     require_once '../inc/haut.inc.php';
-    //------------ CONTENUE DE LA PAGE --------------------//
 ?>
-
-    <a href="../index.php">Retour</a>
+    <a  class="btn btn-primary" role="button" href="<?php RACINE_SITE ?>index.php">Retour à l'Accueil Administrateur</a>
+    <a class="btn btn-primary" role="button" href="<?php RACINE_SITE ?>index.php">Retour</a>
+    
     <h1>Nouvelle Langue</h1>
 
     <?php echo $alert ?>
     
-    <form action="" method="post">
+    <form  action="" method="post">
 
-        <label for="imgcompetence">Image :</label>
-        <input type="text" id="imgcompetence" name="imgcompetence"><br>
+        <div class="form-group">
 
-        <label for="nomcompetence">Nom :</label>
-        <input type="text" id="nomcompetence" name="nomcompetence"><br>
+            <label class="form-control" for="imgcompetence">Image :</label>
+            <input class="form-control bg-info" type="text" id="imgcompetence" name="imgcompetence"><br>
 
-        <label for="niveaucompetence">Niveau :</label>
-    <?php
-        $niveau = '';
-            $niveau .= '<select name="niveaucompetence">';
-            for($i=100;$i>=1;$i--){
-                $niveau .= "<option>" . $i . "</option>";
-            }
-            $niveau .= '</select> <br>';
-        echo $niveau;
-    ?>
+            <label class="form-control" for="nomcompetence">Nom :</label>
+            <input class="form-control bg-info" type="text" id="nomcompetence" name="nomcompetence"><br>
 
-        <label for="anneecompetence">Année : </label>
-    <?php
-        $annees = '';
-            $annees .= '<select id="anneecompetence" name="anneecompetence" >';
-            for($i = date('Y'); $i >= date('Y')-25; $i--){
-                $annees .= '<option value="'. $i .'">'. $i .'</option>';
-            }
-            $annees .= '</select> <br>';
-        echo $annees;
-    ?>
+            <label class="form-control" for="niveaucompetence">Niveau :</label>
 
-        <label for="projetcompetence">projet :</label>
-        <input type="text" id="projetcompetence" name="projetcompetence"><br>
+            <?php
+                $niveau = '';
+                    $niveau .= '<select class="custom-select bg-info" name="niveaucompetence">';
+                    for($i=100;$i>=1;$i--){
+                        $niveau .= "<option>" . $i . "</option>";
+                    }
+                    $niveau .= '</select> <br>';
+                echo $niveau;
+            ?>
 
-        <label for="typecompetence">Type :</label>
-        <select id="typecompetence" name="typecompetence">
-            <option value="Langage" selected>Langage</option> 
-            <option value="Logiciels">Logiciels</option>
-            <option value="CMV">CMV</option>
-            <option value="CMS">CMS</option>
-            <option value="Librairies">Librairies</option>
-            <option value="Autres">Autres</option>
-        </select><br>
+            <br><label class="form-control" for="anneecompetence">Année : </label>
 
-        <input type="submit" value="enregistrer une nouvelle compétence"><br>
+            <?php
+                $annees = '';
+                    $annees .= '<select class="custom-select bg-info" id="anneecompetence" name="anneecompetence" >';
+                    for($i = date('Y'); $i >= date('Y')-25; $i--){
+                        $annees .= '<option value="'. $i .'">'. $i .'</option>';
+                    }
+                    $annees .= '</select> <br>';
+                echo $annees;
+            ?>
 
+            <br><label class="form-control" for="projetcompetence">Projet :</label>
+            <input class="form-control bg-info" type="text" id="projetcompetence" name="projetcompetence"><br>
 
+            <label class="form-control" for="typecompetence">Type :</label>
+            <select class="custom-select bg-info" id="typecompetence" name="typecompetence">
+                <option value="Langage" selected>Langage</option> 
+                <option value="Logiciels">Logiciels</option>
+                <option value="CMV">CMV</option>
+                <option value="CMS">CMS</option>
+                <option value="Librairies">Librairies</option>
+                <option value="Autres">Autres</option>
+            </select><br><br>
 
-
-
-
-
-
-
-
-
-
+            <input class="btn btn-primary" type="submit" value="enregistrer une nouvelle compétence"><br>
+        </div>
     </form>
-
-
-
-
-
-
 <?php
     require_once '../inc/bas.inc.php';

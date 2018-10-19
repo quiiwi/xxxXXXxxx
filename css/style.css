@@ -1,79 +1,46 @@
-/* #objP{
-    border-radius: 5px;
-    background: #df5237;
-    min-height: 1500px;
+.yaramiop:hover{
+    transform:scale(1.1);
 }
 
-body{
-    background: #733c40;
-    font-family: 'Mali', cursive;
+.yaramiop{
+    transition: all .2s ease-in-out;
+}
+
+#bootperso{
+    transition: all .2s ease-in-out;
+}
+
+#bootperso:hover{
+    transform:scale(1.1);
 }
 
 h1,h2,h3,h4,h5,h6{
-    font-family: 'Roboto', sans-serif;
+    
+
+    font-family: 'Niramit', sans-serif;
+
+    /* font-family: 'Mali', cursive; */
+
+    /* font-family: 'K2D', sans-serif; */
+
+
 }
 
-#app{
-    background-color: #b3cfb8;
+#yyyYYY{
+    font-family: 'K2D', sans-serif;
 }
 
-#navbarr{
-    background: #733c40;
-    border-radius: 5px;
-} */
-
-
-
-/*accueil*/
-
-/* .yolooww{
-    position: relative;
-    bottom:25px;
-    opacity: 0.5;
+#marchons:hover{
+    background:rgb(195, 194, 194);
 }
 
-.yolooww h5{
-    text-align: center;
-} */
-
-
-
-
-/*informatique*/
-
-/* .specialcarddd{
-    background: #722a1c;
+#marchonssupp:hover{
+    background:rgb(163, 163, 163);
 }
 
-.specialcarddd2{
-    background: #eae6d5; */
+#swaggyyer{
+    margin-right: 50vh;
 }
-
-
-
-
-/* inscription */
-
-/* .hjhjhj{
-    border-radius: 5px;
-} */
-
-
-
-
-
-/* profil */
-
-.yoloooo{
-    color: white;
-} 
-
-
-.samerrit{
-    margin-left: 40em;
-}
-
-
 
 
 

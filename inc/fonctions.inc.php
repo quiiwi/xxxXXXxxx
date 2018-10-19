@@ -36,4 +36,28 @@ function executeRequete($req,$param = array()){
 	return $result;
 }
 
+function executeRequete2($req,$param = array()){
+	if(!empty($param)){ 
+		foreach($param as $indice => $valeur){
+			$param[$indice] = htmlspecialchars($valeur, ENT_QUOTES);
+		}
+	}
+	global $pdo2;
+	$result = $pdo2->prepare($req);
+	$result->execute($param);
+	return $result;
+}
+
+function executeRequete3($req,$param = array()){
+	if(!empty($param)){ 
+		foreach($param as $indice => $valeur){
+			$param[$indice] = htmlspecialchars($valeur, ENT_QUOTES);
+		}
+	}
+	global $pdo3;
+	$result = $pdo3->prepare($req);
+	$result->execute($param);
+	return $result;
+}
+
 ?>

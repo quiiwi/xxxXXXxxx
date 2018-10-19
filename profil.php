@@ -8,12 +8,17 @@ if (!internauteEstConnecte()) {
 
 extract($_SESSION['membre']);
 
+
 require_once 'inc/haut.inc.php';
+
+$donneesP = $pdo->query("SELECT * FROM quiiwi_inscrits WHERE id_inscrit = $id_inscrit");
+
+while($info = $donneesP->fetch(PDO::FETCH_ASSOC)){
 
 ?>
 
-<div class="yoloooo container bg-primary p-3">
-    <div class="container bg-dark p-3">
+
+    <div class="container p-3 bg-info">
 
         <div class="row">
             
@@ -22,10 +27,10 @@ require_once 'inc/haut.inc.php';
             </div>
 
             <div class="col-6">
-                nom :  <?php  echo $nom  ?> <br>
-                prénom : <?php  echo $prenom  ?> <br>
-                pseudo : <?php  echo $pseudo  ?> <br>
-                value : <?php  echo $value  ?> <br>
+                nom :  <?php  echo $info['nom'];  ?> <br>
+                prénom : <?php  echo $info['prenom'];  ?> <br>
+                pseudo : <?php  echo $info['pseudo'];  ?> <br>
+                value : <?php  echo $info['value'];  ?> <br>
             </div>
 
         </div>
@@ -34,17 +39,17 @@ require_once 'inc/haut.inc.php';
         <div class="row">
 
             <div class="col-6">
-                email : <?php  echo $email  ?> <br>
-                mdp : <?php  echo $mdp  ?> <br>
-                téléphone : <?php  echo $telephone  ?> <br>
-                motif_inscription : <?php  echo $motif_inscription  ?> <br>
+                email : <?php  echo $info['email'];  ?> <br>
+                mdp : <?php  echo $info['mdp'];  ?> <br>
+                téléphone : <?php  echo $info['telephone'];  ?> <br>
+                motif_inscription : <?php  echo $info['motif_inscription'];  ?> <br>
             </div>
 
             <div class="col-6">
-                adresse : <?php  echo $adresse  ?> <br>
-                code postal : <?php  echo $code_postal  ?> <br>
-                ville : <?php  echo $ville  ?> <br>
-                pays : <?php  echo $pays  ?> <br>
+                adresse : <?php  echo $info['adresse'];  ?> <br>
+                code postal : <?php  echo $info['code_postal'];  ?> <br>
+                ville : <?php  echo $info['ville'];  ?> <br>
+                pays : <?php  echo $info['pays'];  ?> <br>
             </div>
 
         </div>
@@ -57,20 +62,9 @@ require_once 'inc/haut.inc.php';
         </div>
 
     </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php
+
+}
+
 require_once 'inc/bas.inc.php';
